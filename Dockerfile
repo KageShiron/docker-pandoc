@@ -11,7 +11,7 @@ RUN wget -qO- https://api.github.com/repos/jgm/pandoc/releases/latest | \
 RUN wget -qO- https://api.github.com/repos/lierdakil/pandoc-crossref/releases/latest | \
     jq '.assets[] | select(.name | startswith("linux")).browser_download_url' | \
     xargs wget -qO- | \
-    tar xvz --strip-components 1 -C /usr/local/
+    tar xvz --strip-components 1 -C /usr/local/bin/
 
 RUN pip3 install pandocfilters
 RUN tlmgr install luatexbase ctablestack fontspec luaotfload lualatex-math
