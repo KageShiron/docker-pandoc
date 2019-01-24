@@ -13,7 +13,7 @@ RUN wget -qO- https://api.github.com/repos/lierdakil/pandoc-crossref/releases/la
     xargs wget -qO- | \
     tar xvz --strip-components 1 -C /usr/local/bin/
 
-RUN pip3 install pandocfilters
+RUN pip3 install --upgrade pandocfilters Pygments pandoc-minted 
 RUN tlmgr install luatexbase ctablestack fontspec luaotfload lualatex-math
 RUN apt purge -y wget jq \
     && apt autoremove -y \
